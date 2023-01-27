@@ -25,4 +25,11 @@ def player_input():
         return player_numbers 
 
 
-
+def compare_choices(list1, list2):
+    points = 0
+    list1 = sorted(list1)
+    list2 = sorted(list2)
+    for number in range(len(list1)):
+        if list1[number] == list2[number]:
+            points += 1
+    return points
