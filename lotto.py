@@ -1,10 +1,14 @@
 import random
 
 
-def lotto():
-    player_numbers = []
+def generate_numbers():
     list_of_numbers = list(range(1, 50))
-    chosen_numbers = random.choices(list_of_numbers, k = 6)
+    random_numbers = random.choices(list_of_numbers, k = 6)
+    return random_numbers
+
+
+def player_input():
+    player_numbers = []
     while len(player_numbers) != 6:
         try:
             player_choice = int(input("Please choose a number in range 1 to 49: "))
@@ -17,8 +21,24 @@ def lotto():
 
         except ValueError:
             print("Sorry but you have to choose an intiger in range 1 to 49.")
+        
+    return player_numbers 
 
 
+def compare_choices(list1, list2):
+    points = 0
+    list1 = sorted(list1)
+    list2 = sorted(list2)
+    for number in range(len(list1)):
+        if list1[number] == list2[number]:
+            points += 1
+    return points
+
+def lotto():
+    generated_list = generate_numbers()
+    player_list = player_input()
+    points = compare_choices(player_list, generated_list)
+    print(f"You have {points} matching numbers")
 
 
 lotto()
