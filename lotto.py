@@ -1,10 +1,14 @@
 import random
 
 
-def lotto():
-    player_numbers = []
+def generate_numbers():
     list_of_numbers = list(range(1, 50))
-    chosen_numbers = random.choices(list_of_numbers, k = 6)
+    random_numbers = random.choices(list_of_numbers, k = 6)
+    return random_numbers
+
+
+def player_input():
+    player_numbers = []
     while len(player_numbers) != 6:
         try:
             player_choice = int(input("Please choose a number in range 1 to 49: "))
@@ -17,8 +21,8 @@ def lotto():
 
         except ValueError:
             print("Sorry but you have to choose an intiger in range 1 to 49.")
+        
+        return player_numbers 
 
 
 
-
-lotto()
