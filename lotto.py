@@ -22,7 +22,7 @@ def player_input():
         except ValueError:
             print("Sorry but you have to choose an intiger in range 1 to 49.")
         
-        return player_numbers 
+    return player_numbers 
 
 
 def compare_choices(list1, list2):
@@ -33,3 +33,12 @@ def compare_choices(list1, list2):
         if list1[number] == list2[number]:
             points += 1
     return points
+
+def lotto():
+    generated_list = generate_numbers()
+    player_list = player_input()
+    points = compare_choices(player_list, generated_list)
+    print(f"You have {points} matching numbers")
+
+
+lotto()
